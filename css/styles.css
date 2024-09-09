@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(93, 198, 206);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em; /* 1em = 16px */
+}
+
+#wrapper {
+    max-width: 1000px;
+    background-color: white;
+    /* 1em = 16px. Since only one value is given, assumed that padding will be for all four sides of screen.*/
+    padding: 16px;
+    /* This code centers the element. The 0 is for top/bottom, the auto is for left and right. Lots of ways to write this. Auto tries to center something.*/
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: cursive;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-family: cursive;
+    font-size: 1.5em;
+}
+
+a {
+    text-decoration: none; /*No underlines or other decor on the text. Note: links are special, and have multiple states to style.*/
+    line-height: 2; /*Double spacing*/
+    color: rgb(211, 179, 0);
+}
+
+ /* Styling the hover state of the link*/
+a:hover {
+    color:rgb(240, 204, 0);
+    text-decoration: underline;
+}
+
+a:visited {
+    color:rgba(240, 0, 0, 0.76);
+}
+
+/*Styles any ul inside a nav*/
+nav ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline; /*Put the element horizontal like a nav is by default*/
+    padding: 8px;
+}
+
+.tvcategory {
+    /*thickness | style | color*/
+    border: 1px solid gray;
+    padding: 1em;
+    margin-bottom: 20px;
+}
+
+.tv {
+    width : 50px;
+    float: left; /*Puts something, somewhere, in relation to text*/
+    padding-right: 1em;
+}
+
+.clear {
+    clear: both; /*Will put things beneath floated elements (ignoring them)*/
+}
+
+figure img {
+    max-width: 100%;
+}
+
+figure {
+    display: inline-block; /*Inline but start a new line at some point*/
+    width: 250px;
+}
