@@ -13,3 +13,8 @@ if (isMorning) {
 } else {
     welcomeMessage.textContent = 'Good Evening!'
 }
+
+// Assignment 4: Store a secret message in localStorage
+const key = "It's a secret to everybody."
+const secret = 'This message is feeling very insecure.'
+localStorage.setItem(key, secret)
