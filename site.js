@@ -1,5 +1,3 @@
-console.log("The js file is linked correctly!")
-
 // Assignment 3: Display a welcome message based on time of day
 const hours = new Date().getHours() // get the current hour
 const isMorning = hours >= 4 && hours < 12 // is it morning?
@@ -14,10 +12,12 @@ if (isMorning) {
     welcomeMessage.textContent = 'Good Evening!'
 }
 
+
 // Assignment 4: Store a secret message in localStorage
 const key = "It's a secret to everybody."
 const secret = 'This message is feeling very insecure.'
 localStorage.setItem(key, secret)
+
 
 // Assignment 5: Rotating images using click events
 const urls = [
@@ -58,3 +58,30 @@ setInterval(() => {
     currentImage--
     showImages()
 }, 5000)
+
+
+// Assignment 6: Todo list
+const todoInput = document.querySelector('#new-todo')
+const todos = JSON.parse(localStorage.getItem('todo-list')) || []
+
+// arrow function to display and update our todo list from localstorage
+const renderTodos = () => {
+    const todoList = document.querySelector('.todo-list')
+
+    todoList.innerHTML = ''
+    todos.forEach( ({text}) => {
+        const li = document.createElement('li')
+        li.textContent = text
+        todoList.append(li)
+    } )
+}
+
+// Calls the render function once on page load
+renderTodos()
+
+// Functionality for the to-do add button
+document.querySelector('#add-todo-button').addEventListener('click', () => {
+    todos.push({ text: todoInput.value, completed: false })
+    localStorage.setItem('todo-list', JSON.stringify(todos))
+    renderTodos()
+})
