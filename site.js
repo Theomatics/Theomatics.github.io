@@ -85,3 +85,27 @@ document.querySelector('#add-todo-button').addEventListener('click', () => {
     localStorage.setItem('todo-list', JSON.stringify(todos))
     renderTodos()
 })
+
+// Assignment 7: API Fetch
+// Function to return a pokemon JSON object from the PokeAPI
+getRandomPokemon = async () => {
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150) // technically, while unlikely, if math.random returns 0 i think this could break?
+    const response = await fetch(url)
+    return await response.json()
+}
+
+// Renders a pokemon from its data
+renderPokemon = pokemonObj => {
+    const parentElement = document.querySelector("#pokemon")
+    const img = document.createElement('img')
+    img.src = pokemonObj.sprites.front_default // src sprite's image link from the api
+    img.alt = pokemonObj.name// name of the pokemon
+    img.width = 200
+    parentElement.append(img)
+}
+
+// Async code
+(async () => {
+    const pokemon = await getRandomPokemon()
+    renderPokemon(pokemon)
+})()
